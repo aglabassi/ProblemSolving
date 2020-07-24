@@ -1,6 +1,6 @@
 class Solution:
-    #https://leetcode.com/problems/generate-parentheses
     
+    #https://leetcode.com/problems/generate-parentheses
     def generateParenthesis(self, n: int) -> List[str]:
         if n==0:
             return [""]

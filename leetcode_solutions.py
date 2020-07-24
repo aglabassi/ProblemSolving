@@ -17,5 +17,29 @@ class Solution:
            
             
         return res
+    
+   
+    #https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to
+    def groupThePeople(self, sizes: List[int]) -> List[List[int]]:
+        
+        sizes2groups= dict()
+                
+        for idx,size in enumerate(sizes):
+            
+            if size in sizes2groups:
+                groups = sizes2groups[size] 
+                if len(groups[-1]) < size:
+                    groups[-1].append(idx)
+                else:
+                    groups.append([idx])
+            
+                
+            else:
+                sizes2groups[size] = [[idx]]
+        
+        res = [ group for groups in  sizes2groups.values() for group in groups ]
+        return res
+        
+        
             
             

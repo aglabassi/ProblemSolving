@@ -8,7 +8,7 @@ class Solution:
         if n in Solution.past_sols:
             return Solution.past_sols[n]
         
-        else if n==0:
+        elif n==0:
             res = [""]
             Solution.past_sols[n] = res
             return res

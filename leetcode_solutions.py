@@ -8,10 +8,10 @@ class Solution:
         res = []
         
         for idx in range(n):
-            left_prev_sol = self.generateParenthesis(idx)
-            right_prev_sol = self.generateParenthesis(n-idx-1)
-            for sol_l in left_prev_sol:
-                for sol_r in right_prev_sol:
+            left_sols = self.generateParenthesis(idx)
+            right_sols = self.generateParenthesis(n-idx-1)
+            for sol_l in left_sols:
+                for sol_r in right_sols:
                     to_append = "(" + sol_l + ")" +sol_r
                     res.append(to_append)
            

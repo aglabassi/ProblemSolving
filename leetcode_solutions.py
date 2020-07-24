@@ -7,16 +7,12 @@ class Solution:
      
         if n in Solution.past_sols:
             return Solution.past_sols[n]
-        
         elif n==0:
-            res = [""]
-            Solution.past_sols[n] = res
+            Solution.past_sols[n] = res = [""]
             return res
+        
             
-        
-        
         res = []
-        
         for idx in range(n):
             left_prev_sol = self.generateParenthesis(idx)
             right_prev_sol = self.generateParenthesis(n-idx-1)

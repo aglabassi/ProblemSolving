@@ -1,25 +1,34 @@
 class Solution:
     
-    #https://leetcode.com/problems/generate-parentheses
+    #https://leetcode.com/problems/generate-parentheses   
+    #Dynamic programming algorithm. Faster than 99.83% of other submissions
+    past_sols = dict()
     def generateParenthesis(self, n: int) -> List[str]:
         if n==0:
             return [""]
         
+        elif n in Solution.past_sols:
+            return Solution.past_sols[n]
+        
+        
         res = []
         
         for idx in range(n):
-            left_sols = self.generateParenthesis(idx)
-            right_sols = self.generateParenthesis(n-idx-1)
-            for sol_l in left_sols:
-                for sol_r in right_sols:
+            left_prev_sol = self.generateParenthesis(idx)
+            right_prev_sol = self.generateParenthesis(n-idx-1)
+            for sol_l in left_prev_sol:
+                for sol_r in right_prev_sol:
                     to_append = "(" + sol_l + ")" +sol_r
                     res.append(to_append)
-           
+        Solution.past_sols[n] = res   
             
         return res
+            
+            
     
    
     #https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to
+    #Faster than 99.78% of other submissions
     def groupThePeople(self, sizes: List[int]) -> List[List[int]]:
         
         sizes2groups= dict()

@@ -4,11 +4,15 @@ class Solution:
     #Dynamic programming algorithm. Faster than 99.83% of other submissions
     past_sols = dict()
     def generateParenthesis(self, n: int) -> List[str]:
-        if n==0:
-            return [""]
-        
-        elif n in Solution.past_sols:
+     
+        if n in Solution.past_sols:
             return Solution.past_sols[n]
+        
+        else if n==0:
+            res = [""]
+            Solution.past_sols[n] = res
+            return res
+            
         
         
         res = []
